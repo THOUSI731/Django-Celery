@@ -128,10 +128,15 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # CELERY Settings
 CELERY_TIMEZONE="Asia/Kolkata"
 CELERY_BROKER_URL = "redis://127.0.0.1:6379/0"
+
+# For Moniterizing we can use redis,django databse, etc...
 CELERY_RESULT_BACKEND = "django-db"
 # Enables extended task result attributes (name,args,kwargs,worker,
 # retries,queue,delivery_info) to be written to backend
 CELERY_RESULT_EXTENDED = True 
+CELERY_ACCEPT_CONTENT = ["application/json"]
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = "json"
 
 #   Method 1
 CELERY_BEAT_SCHEDULE = {
